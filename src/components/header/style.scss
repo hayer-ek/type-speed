@@ -1,0 +1,33 @@
+.header {
+    height: 10%;
+    width: 100%;
+    background-color: #3dc9f0;
+    border-radius: 0 0 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 25px;
+    color: white;
+    .logo {
+        margin-left: 50px;
+        font-size: 40px;
+        cursor: pointer;
+    }
+    .menu-container {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        span {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .active {
+            background-color: #1fa3c7;
+            border-radius: 15px;
+        }
+    }
+    .login {
+        margin-right: 70px;
+        cursor: pointer;
+    }
+}
