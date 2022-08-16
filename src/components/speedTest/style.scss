@@ -1,12 +1,17 @@
 .speedTest {
     width: 100%;
-    height: 90%;
+    height: 800px;
+    max-height: 90%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     .tester-container {
-        margin-top: 150px;
+        margin-top: -100px;
         width: 1000px;
+        max-width: 90%;
         height: 250px;
+        max-height: 40%;
         border: solid 2px #666;
         color: black;
         font-size: 40px;
@@ -14,7 +19,6 @@
         border-radius: 40px;
         .tester.active {
             margin: 0 30px;
-            // top: 5px;
             position: relative;
             .row {
                 user-select: none;
@@ -52,5 +56,199 @@
             font-size: 50px;
             cursor: pointer;
         }
+        .stat {
+            display: flex;
+            flex-direction: column;
+            margin-left: 50px;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            font-size: 45px;
+        }
+    }
+    .under-container {
+        margin-top: 50px;
+        width: 800px;
+        max-width: 90%;
+        display: flex;
+        justify-content: space-between;
+        .restart {
+            color: white;
+            background-color: #f3937a;
+            width: 140px;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            animation: RestartOpen ease 0.5s;
+        }
+        @keyframes RestartOpen {
+            0% {
+                width: 270px;
+            }
+            100% {
+                width: 140px;
+            }
+        }
+        .results {
+            min-width: 120px;
+            color: white;
+            background-color: #f3937a;
+            width: 270px;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: right;
+            span {
+                margin: auto;
+            }
+            animation: ResultsOpen ease 0.5s;
+        }
+        @keyframes ResultsOpen {
+            0% {
+                width: 140px;
+            }
+            100% {
+                width: 270px;
+            }
+        }
+        .timer {
+            margin: auto;
+            margin-right: 0;
+            color: white;
+            width: 100px;
+            height: 50px;
+            background-color: #f3937a;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            animation: timer 0.5s ease;
+        }
+        @keyframes timer {
+            0% {
+                width: 270px;
+            }
+            100% {
+                width: 100px;
+            }
+        }
+        .timer-selector {
+            min-width: 270px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            div {
+                width: 33.4%;
+                border: none;
+                height: 50px;
+                background-color: #f3937a;
+                cursor: pointer;
+                color: white;
+                font-size: 18px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+            .left {
+                margin: auto;
+                margin-left: 0;
+                border-radius: 20px 0 0 20px;
+            }
+            .right {
+                margin: auto;
+                margin-right: 0;
+                border-radius: 0 20px 20px 0;
+            }
+            .selector {
+                position: absolute;
+                background: #d26e55;
+                z-index: 1;
+                width: 33.4%;
+                height: 50px;
+                left: 0px;
+                transition: left 0.5s ease, border-radius 0.5s ease;
+            }
+            .selector.right {
+                left: 180px;
+            }
+            .selector.center {
+                left: 90px;
+            }
+            .selector.left {
+                left: 0px;
+            }
+            animation: timerSelector ease 0.5s;
+        }
+        @keyframes timerSelector {
+            0% {
+                width: 100px;
+            }
+            100% {
+                width: 270px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .speedTest {
+        .tester-container {
+            .tester.disabled {
+                font-size: 40px;
+            }
+        }
+        .under-container {
+            .results {
+                font-size: 15px;
+                white-space: normal;
+                text-align: center;
+                transform: scale(0.8);
+            }
+            .timer-selector {
+                transform: scale(0.8);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .speedTest {
+        .tester-container {
+            .tester.disabled {
+                font-size: 30px;
+            }
+        }
+        .under-container {
+            .results {
+                white-space: normal;
+                text-align: center;
+                transform: scale(0.6);
+            }
+            .timer-selector {
+                transform: scale(0.6);
+            }
+        }
+    }
+}
+
+@media screen and (max-height: 550px) {
+    .speedTest {
+        margin-top: 40px;
     }
 }

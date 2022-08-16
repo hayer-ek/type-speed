@@ -1,7 +1,10 @@
+$padding: 10px;
+
 .header {
-    height: 10%;
+    height: 100px;
     width: 100%;
-    background-color: #3dc9f0;
+    max-height: 10%;
+    background-color: #5ac6c6;
     border-radius: 0 0 40px 40px;
     display: flex;
     align-items: center;
@@ -13,21 +16,166 @@
         font-size: 40px;
         cursor: pointer;
     }
+    .logo.animation {
+        span {
+            position: relative;
+            animation: logo 1s ease;
+        }
+        span:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        span:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        span:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        span:nth-child(6) {
+            animation-delay: 0.4s;
+        }
+        span:nth-child(7) {
+            animation-delay: 0.5s;
+        }
+        span:nth-child(8) {
+            animation-delay: 0.6s;
+        }
+        span:nth-child(9) {
+            animation-delay: 0.7s;
+        }
+        span:nth-child(10) {
+            animation-delay: 0.8s;
+        }
+        @keyframes logo {
+            0% {
+                top: 0;
+            }
+            25% {
+                top: 15px;
+            }
+            75% {
+                top: -15px;
+            }
+            100% {
+                top: 0;
+            }
+        }
+    }
     .menu-container {
         width: 40%;
+        height: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         span {
+            display: flex;
+            align-items: center;
             padding: 10px;
             cursor: pointer;
+            transition: background-color 0.5s ease;
+            border-radius: 15px;
+        }
+        span:hover:not(.active) {
+            background-color: #44b9b9;
         }
         .active {
-            background-color: #1fa3c7;
-            border-radius: 15px;
+            background-color: #008c8d;
+            max-height: 100%;
         }
     }
     .login {
         margin-right: 70px;
         cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .header {
+        font-size: 20px;
+        .logo {
+            font-size: 30px;
+        }
+        .menu-container {
+            span {
+                padding: 9px;
+                border-radius: 13px;
+            }
+        }
+        .login {
+            margin-right: 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .header {
+        font-size: 15px;
+        .logo {
+            margin-left: 40px;
+            font-size: 25px;
+        }
+        .menu-container {
+            span {
+                padding: 8px;
+                border-radius: 11px;
+            }
+        }
+        .login {
+            margin-right: 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .header {
+        font-size: 10px;
+        border-radius: 0 0 30px 30px;
+        .logo {
+            margin-left: 30px;
+            font-size: 18px;
+        }
+        .menu-container {
+            span {
+                padding: 6px;
+                border-radius: 9px;
+            }
+        }
+        .login {
+            margin-right: 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .header {
+        max-height: 5%;
+        font-size: 7px;
+        border-radius: 0 0 20px 20px;
+        .logo {
+            margin-left: 10px;
+            font-size: 12px;
+        }
+        .menu-container {
+            span {
+                padding: 5px;
+                border-radius: 7px;
+                max-height: 5%;
+            }
+        }
+        .login {
+            margin-right: 20px;
+        }
+    }
+}
+
+@media screen and (max-height: 550px) {
+    .header {
+        .menu-container {
+            span {
+                $padding: 0;
+                padding-top: $padding !important;
+                padding-bottom: $padding !important;
+                height: 100%;
+            }
+        }
     }
 }

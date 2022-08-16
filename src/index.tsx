@@ -18,19 +18,29 @@ interface State {
 }
 
 class App extends Component<Props, State> {
+    activeDelay: boolean;
     constructor(props: Props) {
         super(props);
 
         this.state = {
             page: "speedTest",
             language: "ru",
-            timer: 1
+            timer: 1,
         };
+        this.activeDelay = false;
     }
 
     setPage = (page: Pages) => {
         this.setState((state) => ({ ...state, page }));
+        this.activeDelay = true;
+        setTimeout(() => {
+            this.activeDelay = false;
+        }, 500);
     };
+
+    setTimer = (timer: number) => {
+        this.setState((state) => ({ ...state, timer }));
+    }
 
     render(): React.ReactNode {
         if (this.state.page === "home") {
@@ -55,7 +65,13 @@ class App extends Component<Props, State> {
             return (
                 <>
                     <Header page={this.state.page} setPage={this.setPage} />
-                    <SpeedTest language={this.state.language} timer={this.state.timer} />
+                    <SpeedTest
+                        language={this.state.language}
+                        timer={this.state.timer}
+                        page={this.state.page}
+                        setPage={this.setPage}
+                        setTimer={this.setTimer}
+                    />
                 </>
             );
         }

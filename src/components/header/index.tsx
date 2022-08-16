@@ -10,17 +10,38 @@ interface Props {
 interface State {}
 
 export default class Header extends Component<Props, State> {
+    componentDidMount() {
+        const logo = document.querySelector(".header .logo");
+        logo?.addEventListener("mouseover", () => {
+            if (logo.classList.contains("animation")) return;
+            logo.setAttribute("class", "logo animation");
+
+            setTimeout(() => {
+                logo.setAttribute("class", "logo");
+            }, 1800)
+        });
+    }
+
     render() {
         return (
             <div className="header">
-                <span
+                <div
                     className="logo"
                     onClick={() => {
                         this.props.setPage("home");
                     }}
                 >
-                    Type Speed
-                </span>
+                    <span>T</span>
+                    <span>y</span>
+                    <span>p</span>
+                    <span>e</span>
+                    <span> </span>
+                    <span>S</span>
+                    <span>p</span>
+                    <span>e</span>
+                    <span>e</span>
+                    <span>d</span>
+                </div>
                 <div className="menu-container">
                     <span
                         className={`main ${

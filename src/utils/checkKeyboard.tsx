@@ -34,6 +34,16 @@ const ruLetters = [
     "э",
     "ю",
     "я",
+    "'",
+    "\"",
+    "`",
+    "~",
+    "-",
+    "_",
+    ".",
+    ",",
+    "\\",
+    "/"
 ];
 const enLetters = [
     "a",
@@ -62,6 +72,16 @@ const enLetters = [
     "x",
     "y",
     "z",
+    "'",
+    "\"",
+    "`",
+    "~",
+    "-",
+    "_",
+    ".",
+    ",",
+    "\\",
+    "/"
 ];
 
 export default function checkKeyboard(
